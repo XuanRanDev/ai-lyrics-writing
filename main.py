@@ -63,7 +63,7 @@ class LyricsDataset(Dataset):
         end = start + self.seq_len
         return (
             torch.as_tensor(self.data[start:end]),  # input
-            torch.as_tensor(self.data[start + 1 : end + 1]),  # output
+            torch.as_tensor(self.data[start + 1: end + 1]),  # output
         )
 
 
@@ -289,17 +289,17 @@ if __name__ == "__main__":
     # Load checkpoint
     checkpoint_files = glob.glob("checkpoint-*.pth")
     if (
-        not debug
-        and len(checkpoint_files) > 0
-        and input("Enter y to load %s: " % checkpoint_files[-1]) == "y"
+            not debug
+            and len(checkpoint_files) > 0
+            and input("Enter y to load %s: " % checkpoint_files[-1]) == "y"
     ):
         load_checkpoint(checkpoint_files[-1])
     else:
         epoch = 0
 
     if (
-        input("Enter y to enter inference mode, anything else to enter training mode: ")
-        == "y"
+            input("Enter y to enter inference mode, anything else to enter training mode: ")
+            == "y"
     ):
         # Inference loop
         while True:
